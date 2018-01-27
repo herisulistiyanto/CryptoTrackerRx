@@ -10,4 +10,4 @@ In this Repo also using *Kotlin Parcelize* for parcelable model
 and Constraint Layout (*well i'm still learning about it too*)
 
 ## Preview
-![preview](https://github.com/herisulistiyanto/CryptoTrackerRx/blob/master/images/img_detail.png)
+<img src=https://github.com/herisulistiyanto/CryptoTrackerRx/blob/master/images/img_detail.png width=360 height=640 />
