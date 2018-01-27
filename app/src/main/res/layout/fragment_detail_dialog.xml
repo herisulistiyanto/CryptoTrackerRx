@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkCardBackground"
+    android:padding="16dp">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertGuideStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertGuideEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98" />
+
+    <TextView
+        android:id="@+id/tvLastUpdate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/lightOrange"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        tools:text="12 Januari 2018" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/lightOrange"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintTop_toBottomOf="@id/tvLastUpdate"
+        tools:text="Bitcoin" />
+
+    <TextView
+        android:id="@+id/tvCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tvName"
+        app:layout_constraintLeft_toRightOf="@id/tvName"
+        app:layout_constraintTop_toTopOf="@id/tvName"
+        tools:text="BTC" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvName"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        app:layout_constraintRight_toLeftOf="@id/vertGuideEnd"
+        tools:text="200.0 $" />
+
+    <LinearLayout
+        android:id="@+id/llWeekly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintTop_toBottomOf="@id/tvName">
+
+        <TextView
+            android:id="@+id/tvLabelDaily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/label_24h"
+            android:textColor="@color/semiDarkGrey"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvStatsDaily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="-24 %" />
+
+        <ImageView
+            android:id="@+id/ivIndicatorDaily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:srcCompat="@drawable/ic_arrow_downward"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llDaily"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/llWeekly"
+        app:layout_constraintLeft_toRightOf="@id/llWeekly"
+        app:layout_constraintRight_toLeftOf="@id/llHourly"
+        app:layout_constraintTop_toTopOf="@id/llWeekly">
+
+        <TextView
+            android:id="@+id/tvLabelWeekly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/label_7d"
+            android:textColor="@color/semiDarkGrey"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvStatsWeekly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvLabelDaily"
+            app:layout_constraintStart_toEndOf="@+id/tvLabelWeekly"
+            app:layout_constraintTop_toTopOf="@id/tvLabelDaily"
+            tools:text="24 %" />
+
+        <ImageView
+            android:id="@+id/ivIndicatorWeekly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:srcCompat="@drawable/ic_arrow_upward"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llHourly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/llWeekly"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        app:layout_constraintTop_toTopOf="@id/llWeekly">
+
+        <TextView
+            android:id="@+id/tvLabelHourly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/label_1h"
+            android:textColor="@color/semiDarkGrey"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvStatsHourly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="24 %" />
+
+        <ImageView
+            android:id="@+id/ivIndicatorHourly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:srcCompat="@drawable/ic_arrow_upward"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/vSeparator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintRight_toLeftOf="@id/vertGuideEnd"
+        android:background="@color/cardview_dark_background"
+        app:layout_constraintTop_toBottomOf="@id/llWeekly" />
+
+    <TextView
+        android:id="@+id/tvDailyVolumeUsd"
+        style="@style/TextlabelStyle"
+        android:layout_marginTop="6dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_24h_volume_usd"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+    <TextView
+        android:id="@+id/tvDailyVolumeUsdValue"
+        style="@style/TextContentStyle"
+        android:layout_marginTop="6dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="$14079300000.0"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvDailyVolumeUsd"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+    <TextView
+        android:id="@+id/tvMarketCapUsd"
+        style="@style/TextlabelStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_market_cap_usd"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintTop_toBottomOf="@id/tvDailyVolumeUsd" />
+
+    <TextView
+        android:id="@+id/tvMarketCapUsdValue"
+        style="@style/TextContentStyle"
+        android:layout_marginTop="6dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="$197697351600"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvMarketCapUsd"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+    <TextView
+        android:id="@+id/tvAvailableSupply"
+        style="@style/TextlabelStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_available_supply"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintTop_toBottomOf="@id/tvMarketCapUsd" />
+
+    <TextView
+        android:id="@+id/tvAvailableSupplyValue"
+        style="@style/TextContentStyle"
+        android:layout_marginTop="6dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="16812000.0"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvAvailableSupply"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+    <TextView
+        android:id="@+id/tvTotalSupply"
+        style="@style/TextlabelStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_total_supply"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintTop_toBottomOf="@id/tvAvailableSupply" />
+
+    <TextView
+        android:id="@+id/tvTotalSupplyValue"
+        style="@style/TextContentStyle"
+        android:layout_marginTop="6dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="16812000.0"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvTotalSupply"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+    <TextView
+        android:id="@+id/tvMaxSupply"
+        style="@style/TextlabelStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_max_supply"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintTop_toBottomOf="@id/tvTotalSupply" />
+
+    <TextView
+        android:id="@+id/tvMaxSupplyValue"
+        style="@style/TextContentStyle"
+        android:layout_marginTop="6dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="21000000.0"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvMaxSupply"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+    <View
+        android:id="@+id/vSeparatorBot"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintRight_toLeftOf="@id/vertGuideEnd"
+        android:background="@color/cardview_dark_background"
+        app:layout_constraintTop_toBottomOf="@id/tvMaxSupply" />
+
+    <TextView
+        android:id="@+id/tvPriceIdr"
+        style="@style/TextlabelStyle"
+        android:layout_width="0dp"
+        android:layout_marginTop="6dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_price_idr"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorBot" />
+
+    <TextView
+        android:id="@+id/tvPriceIdrValue"
+        style="@style/TextContentStyle"
+        android:layout_marginTop="6dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Rp.157306475.587"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvPriceIdr"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+    <TextView
+        android:id="@+id/tvDailyVolumeIdr"
+        style="@style/TextlabelStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_24h_volume_idr"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintTop_toBottomOf="@id/tvPriceIdr" />
+
+    <TextView
+        android:id="@+id/tvDailyVolumeIdrValue"
+        style="@style/TextContentStyle"
+        android:layout_marginTop="6dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Rp.188341573199687.0625"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvDailyVolumeIdr"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+    <TextView
+        android:id="@+id/tvMarketCapIdr"
+        style="@style/TextlabelStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_market_cap_idr"
+        app:layout_constraintLeft_toRightOf="@id/vertGuideStart"
+        app:layout_constraintTop_toBottomOf="@id/tvDailyVolumeIdr" />
+
+    <TextView
+        android:id="@+id/tvMarketCapIdrValue"
+        style="@style/TextContentStyle"
+        android:layout_marginTop="6dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Rp.2644636467562710"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvMarketCapIdr"
+        app:layout_constraintEnd_toStartOf="@id/vertGuideEnd"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+</android.support.constraint.ConstraintLayout>

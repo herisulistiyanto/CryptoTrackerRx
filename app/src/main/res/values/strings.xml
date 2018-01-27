@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name" translatable="false">CryptoTracker</string>
+    <string name="server_url" translatable="false">https://api.coinmarketcap.com</string>
+    <string name="error_no_internet">No internet connection</string>
+    <string name="text_check">check</string>
+    <string name="error_general">Something went wrong</string>
+    <string name="label_no">NO</string>
+    <string name="label_yes">YES</string>
+    <string name="title_exit_question">Do You want to exit?</string>
+    <string name="label_auto_refresh">Auto Refresh (%s)</string>
+    <string name="label_settings">Settings</string>
+    <string name="label_24h">24h :</string>
+    <string name="label_7d">7d :</string>
+    <string name="label_1h">1h :</string>
+    <string name="label_24h_volume_usd">24h Volume USD :</string>
+    <string name="label_market_cap_usd">Market Cap USD :</string>
+    <string name="label_available_supply">Available Supply :</string>
+    <string name="label_total_supply">Total Supply :</string>
+    <string name="label_max_supply">Max Supply :</string>
+    <string name="label_price_idr">Price IDR :</string>
+    <string name="label_24h_volume_idr">24h Volume IDR :</string>
+    <string name="label_market_cap_idr">Market Cap IDR :</string>
+    <string name="label_crypto_tracker_app">crypto tracker app</string>
+    <string name="label_save">Save</string>
+    <string name="label_on">ON</string>
+    <string name="label_off">OFF</string>
+    <string name="label_crypto_toolbar">Crypto Status</string>
+</resources>

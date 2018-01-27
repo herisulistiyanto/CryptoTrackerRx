@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+ext.majorVersion = 0
+ext.minorVersion = 0
+ext.patchVersion = 1
+ext.preRelease = ""
+
+android {
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion project.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.andro.indie.school.cryptotracker"
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
+        versionCode generateVersionCode()
+        versionName generateVersionName()
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        buildTypes {
+            debug {
+                testCoverageEnabled = true
+                minifyEnabled false
+                debuggable true
+            }
+            release {
+                debuggable false
+                minifyEnabled true
+                zipAlignEnabled true
+                shrinkResources true
+                crunchPngs true
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "CryptoTracker-${variant.versionName}.apk"
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+apply from: "../dependencies.gradle"
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libraries.kotlinJre7
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.cardView
+    implementation supportDependencies.design
+    implementation supportDependencies.support
+    implementation supportDependencies.recyclerView
+    implementation supportDependencies.constrainLayout
+
+    implementation libraries.okHttp3
+    implementation libraries.okhttp3Logging
+
+    implementation libraries.rxJava2
+    implementation libraries.rxAndroid2
+
+    implementation libraries.retrofit
+    implementation libraries.retrofitGson
+    implementation libraries.retrofitRx2Adapter
+
+    implementation libraries.dagger
+    kapt libraries.daggerCompiler
+
+    implementation libraries.anko
+    implementation libraries.ankoCommon
+
+    testImplementation testLibraries.junit
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation testSupportDependencies.espressoCore
+}
+
+private Integer generateVersionCode() {
+    return project.ext.minSdkVersion * 10000000 + ext.majorVersion * 10000 + ext.minorVersion * 100 + ext.patchVersion
+}
+
+private String generateVersionName() {
+    String versionName = "${ext.majorVersion}.${ext.minorVersion}.${ext.patchVersion}"
+    if (ext.preRelease != null && !ext.preRelease.isEmpty()) {
+        versionName = versionName + "-" + ext.preRelease
+    }
+    return versionName
+}
