@@ -10,4 +10,4 @@ In this Repo also using *Kotlin Parcelize* for parcelable model
 and Constraint Layout (*well i'm still learning about it too*)
 
 ## Preview
-![Alt text](CryptoTrackerRx/images/img_detail.png?raw=true "Preview")
+![preview](CryptoTrackerRx/images/img_detail.png)
