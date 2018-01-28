@@ -193,6 +193,7 @@ class HomeActivity : BaseActivity(), HomeView, HomeAdapter.HolderListener {
                 btnSave.setOnClickListener { _ ->
                     dismiss()
                     val refreshIntent = intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    this@HomeActivity.finish()
                     startActivity(refreshIntent)
                     autoUpdateStatus = isAutoOn
                 }
